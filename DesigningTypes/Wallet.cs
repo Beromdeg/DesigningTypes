@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DesigningTypes
 {
+    //Walllet class could have been private
     public class Wallet
     {
         public decimal MoneyAmount { get; private set; }
