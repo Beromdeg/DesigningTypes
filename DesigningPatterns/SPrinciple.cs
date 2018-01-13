@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace DesigningPatterns
 {
     //single responsibility principle in SOLID demo
-    //feks I want ot have a journal
+    //eg: I want ot have a journal
     public class Journal
     {
         //readonly list of my entries
@@ -26,7 +26,7 @@ namespace DesigningPatterns
             entries.Add($"{++count}: {text}");
             return count; //momento pattern
         }
-        
+
         //method to remove entry
         public void RemoveRntry(int index)
         {
@@ -52,7 +52,7 @@ namespace DesigningPatterns
     public class presistence
     {
         //method to save eg. to a file
-        public void SaveToFile(Journal j, string filename, bool overwrite= false)
+        public void SaveToFile(Journal j, string filename, bool overwrite = false)
         {
             if (overwrite || !File.Exists(filename))
             {
@@ -63,22 +63,24 @@ namespace DesigningPatterns
         //method to load from URI
     }
 
-    public class SPrinciple
-    {
-        static void Main(string[] args)
-        {
-            //demo of our journal
-            var j = new Journal();
-            j.AddEntry("Single responsibility principle");
-            j.AddEntry("only single reason to change sounds inefficient");
-            j.AddEntry("lets see...");
-            WriteLine(j);
-
-            /***side-effect is that we dont have seperation of concern here***/
-            var p = new presistence();
-            var filename = @"C:\...\Design_Patterns\journal.txt";
-            p.SaveToFile(j, filename, true);
-            Process.Start(filename); //see if it works
-        }
-    }
 }
+    //entry point in demo class
+    //public class SPrinciple
+    //{
+        //static void Main(string[] args)
+        //{
+        //    //demo of our journal
+        //    var j = new Journal();
+        //    j.AddEntry("Single responsibility principle");
+        //    j.AddEntry("only single reason to change sounds inefficient");
+        //    j.AddEntry("lets see...");
+        //    WriteLine(j);
+
+        //    /***side-effect is that we dont have seperation of concern here***/
+        //    var p = new presistence();
+        //    var filename = @"C:\...\Design_Patterns\journal.txt";
+        //    p.SaveToFile(j, filename, true);
+        //    Process.Start(filename); //see if it works
+        //}
+    //}
+//}
